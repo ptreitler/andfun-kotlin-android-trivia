@@ -35,15 +35,15 @@ import android.content.pm.ResolveInfo
 import android.content.pm.PackageManager
 
 
-
 class GameWonFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
-        // TODO (06) Add an onClick Handler for the nextMatch button that navigates to the gameFragment
-        // using action_gameWonFragment_to_gameFragment
+        binding.nextMatchButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
+        }
         return binding.root
     }
 }
